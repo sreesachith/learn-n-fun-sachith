@@ -29,7 +29,7 @@ class _IdeateState extends State<Ideate> {
     super.initState();
     colors.addAll(List.generate(
         currentPersona.ideas.length,
-        (index) => Color((Random().nextDouble() * 0xFFFFFF).toInt())
+        (index) => Color((Random().nextDouble() * 0xfffffff).toInt())
             .withOpacity(0.2)));
   }
 
@@ -91,16 +91,16 @@ class _IdeateState extends State<Ideate> {
           children: [
             Container(
                 height: height * 0.1,
-                decoration: BoxDecoration(color: Color(0xfff4f4f4)),
+                decoration: BoxDecoration(color: Color(0xffffffff)),
                 child: Row(
                   children: [
                     Text("Time left- $time seconds",
-                        style: GoogleFonts.quicksand(
-                            color: const Color(0xffffa62b),
+                        style: GoogleFonts.signika(
+                            color: const Color(0xff9c27b0),
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.normal,
                             fontSize: height * 0.04),
-                        textAlign: TextAlign.left),
+                        textAlign: TextAlign.center),
                     IconButton(
                         icon: Icon(Icons.close),
                         onPressed: () => Navigator.pop(context))
@@ -124,14 +124,14 @@ class _IdeateState extends State<Ideate> {
             Container(
               width: width,
               height: height * 0.1,
-              decoration: BoxDecoration(color: Color(0xfff4f4f4)),
+              decoration: BoxDecoration(color: Color(0xffffffff)),
               child: Text("Pop the bubbles with the best ideas",
-                  style: GoogleFonts.quicksand(
-                      color: const Color(0xffffa62b),
+                  style: GoogleFonts.signika(
+                      color: const Color(0xff9c27b0),
                       fontWeight: FontWeight.w500,
                       fontStyle: FontStyle.normal,
                       fontSize: height * 0.028),
-                  textAlign: TextAlign.left),
+                  textAlign: TextAlign.center),
             ),
           ],
         ))));
@@ -153,8 +153,8 @@ class _IdeateState extends State<Ideate> {
             },
             color: colors[index],
             child: Text(text,
-                style: GoogleFonts.quicksand(
-                    color: const Color(0xff489fb5),
+                style: GoogleFonts.signika(
+                    color: const Color(0xffffffff),
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.normal,
                     fontSize: height * 0.02),
@@ -200,14 +200,14 @@ class _Ideate2State extends State<Ideate2> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: Color(0xfff4f4f4),
+        backgroundColor: Color(0xffffffff),
         body: Center(
             child: Column(
           children: [
             StdBackButton(),
             Text("Ideate",
-                style: GoogleFonts.quicksand(
-                    color: const Color(0xff489fb5),
+                style: GoogleFonts.signika(
+                    color: const Color(0xff9c27b0),
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.normal,
                     fontSize: height * 0.05)),
@@ -219,8 +219,8 @@ class _Ideate2State extends State<Ideate2> {
                   bottom: height * 0.001),
               child: Text(
                   "List all the ideas you come up with for gifts in the next 5 minutes. The timer will begin once you tap on the page.",
-                  style: GoogleFonts.quicksand(
-                      color: const Color(0xff1a1b41),
+                  style: GoogleFonts.signika(
+                      color: const Color(0xff9c27b0),
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: height * 0.02)),
@@ -267,8 +267,8 @@ class _Ideate2State extends State<Ideate2> {
                           ? "Time left- ${(time ~/ 60)}:${(time % 60)} minutes"
                           : "Time left- ${(time ~/ 60)}:0${(time % 60)} minutes"
                       : "Time left- $time seconds",
-                  style: GoogleFonts.quicksand(
-                      color: const Color(0xffffa62b),
+                  style: GoogleFonts.signika(
+                      color: const Color(0xff9c27b0),
                       fontWeight: FontWeight.w500,
                       fontStyle: FontStyle.normal,
                       fontSize: height * 0.04),

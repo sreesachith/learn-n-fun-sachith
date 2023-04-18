@@ -52,7 +52,7 @@ class _LoginState extends State<Login> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xfff4f4f4),
+      backgroundColor: Color(0xffffffff),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -64,14 +64,14 @@ class _LoginState extends State<Login> {
                 Padding(
                     padding: EdgeInsets.only(top: height * 0.045),
                     child: Text("Welcome",
-                        style: GoogleFonts.quicksand(
-                            color: Color(0xff16697a),
+                        style: GoogleFonts.signika(
+                            color: Color(0xff9c27b0),
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.normal,
                             fontSize: height * 0.05))),
                 Text("Please Login or Sign Up to secure your account",
-                    style: GoogleFonts.quicksand(
-                        color: Color(0xff16697a),
+                    style: GoogleFonts.signika(
+                        color: Color(0xff9c27b0),
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                         fontSize: height * 0.02)),
@@ -86,16 +86,16 @@ class _LoginState extends State<Login> {
                                     ? "Use Google Sign In"
                                     : loginSettings.loginMethods.first
                         : "Login/Sign Up",
-                    style: GoogleFonts.quicksand(
-                        color: Color(0xffffa62b),
+                    style: GoogleFonts.signika(
+                        color: Color(0xff9c27b0),
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
                         fontSize: height * 0.04),
                     textAlign: TextAlign.center),
                 SizedBox(height: height * 0.09),
                 Text("Enter your Email ID",
-                    style: GoogleFonts.quicksand(
-                        color: const Color(0xff1a1b41),
+                    style: GoogleFonts.signika(
+                        color: Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                         fontSize: height * 0.02)),
@@ -116,8 +116,8 @@ class _LoginState extends State<Login> {
                 SizedBox(height: height * 0.02),
                 loginSettings.checkingCompleted
                     ? Text("Enter your password",
-                        style: GoogleFonts.quicksand(
-                            color: const Color(0xff1a1b41),
+                        style: GoogleFonts.signika(
+                            color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.w400,
                             fontStyle: FontStyle.normal,
                             fontSize: height * 0.02))
@@ -168,7 +168,7 @@ class _LoginState extends State<Login> {
                                         ? "Use Google Sign In"
                                         : loginSettings.loginMethods.first
                             : "Check email ID",
-                        style: GoogleFonts.quicksand(
+                        style: GoogleFonts.signika(
                             fontWeight: FontWeight.w700,
                             fontStyle: FontStyle.normal,
                             fontSize: height * 0.025),
@@ -189,9 +189,9 @@ class _LoginState extends State<Login> {
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
                           if (states.contains(MaterialState.pressed))
-                            return Color(0xffffa62b);
+                            return Color(0xff9c27b0);
                           return Color(
-                              0xffffa62b); // Use the component's default.
+                              0xff9c27b0); // Use the component's default.
                         },
                       ),
                     ),
@@ -216,9 +216,8 @@ class _LoginState extends State<Login> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => GameSelection(),
-                                settings: RouteSettings(
-                                    name: 'Levels')),
-                                (Route<dynamic> route) => false,
+                                settings: RouteSettings(name: 'Levels')),
+                            (Route<dynamic> route) => false,
                           );
                         }
                       } on PasswordFBError {
@@ -250,9 +249,9 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(36.0),
                       )),
                       side: MaterialStateProperty.all<BorderSide>(BorderSide(
-                          color: Color(0xffffa62b), width: width * 0.005))),
+                          color: Color(0xff9c27b0), width: width * 0.005))),
                   onPressed: () {
-                    if(!googleLoading) {
+                    if (!googleLoading) {
                       setState(() {
                         googleLoading = true;
                       });
@@ -267,17 +266,16 @@ class _LoginState extends State<Login> {
                               MaterialPageRoute(
                                   builder: (context) => RegistrationInfo(),
                                   settings:
-                                  RouteSettings(name: 'Profile Creation')),
-                                  (Route<dynamic> route) => false,
+                                      RouteSettings(name: 'Profile Creation')),
+                              (Route<dynamic> route) => false,
                             );
                           } else {
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => GameSelection(),
-                                  settings: RouteSettings(
-                                      name: 'Levels')),
-                                  (Route<dynamic> route) => false,
+                                  settings: RouteSettings(name: 'Levels')),
+                              (Route<dynamic> route) => false,
                             );
                           }
                         });
@@ -288,13 +286,15 @@ class _LoginState extends State<Login> {
                     "assets/google.png",
                     scale: height * 0.004,
                   ),
-                  label: googleLoading?CircularProgressIndicator():Text("Login through Google",
-                      style: GoogleFonts.quicksand(
-                          color: const Color(0xffffa62b),
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal,
-                          fontSize: height * 0.025),
-                      textAlign: TextAlign.left),
+                  label: googleLoading
+                      ? CircularProgressIndicator()
+                      : Text("Login through Google",
+                          style: GoogleFonts.quicksand(
+                              color: const Color(0xff9c27b0),
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.normal,
+                              fontSize: height * 0.025),
+                          textAlign: TextAlign.left),
                 )
               ],
             ),
